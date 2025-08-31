@@ -8,7 +8,7 @@ export default function GlobalStyles() {
       styles={css`
         @font-face {
           font-family: "ChicagoFLF";
-          src: url("/fonts/ChicagoFLF.ttf") format("truetype");
+          src: url("${process.env.PUBLIC_URL}/fonts/ChicagoFLF.ttf") format("truetype");
           font-weight: 400;
           font-style: normal;
           font-display: swap;

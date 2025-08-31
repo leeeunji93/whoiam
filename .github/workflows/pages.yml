@@ -24,7 +24,10 @@ jobs:
           node-version: 20
           cache: "npm"
       - run: npm ci
-      - run: npm run build     # (craco 설정이면 그대로 build 스크립트가 실행됨)
+      - name: Build (disable CI warnings-as-errors)
+        run: npm run build
+        env:
+          CI: false
       - uses: actions/upload-pages-artifact@v3
         with:
           path: build
