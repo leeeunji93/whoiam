@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
+import theme from "@/styles/theme";
 
-/* 로딩 점프 */
+/* 로딩 점프 애니메이션 */
 const dots = keyframes`
   0% { opacity: .2; }
   50% { opacity: 1; }
@@ -32,19 +33,18 @@ export const Bar = styled.header`
   font-family: "ChicagoFLF","Lucida Grande",Arial,sans-serif;
 `;
 
-/* 정사각 카드 캔버스 */
 export const CardWrap = styled.div`
   padding: 14px;
   display: grid;
   place-items: center;
 `;
 
+/* 미리보기 카드(정사각) */
 export const Card = styled.div`
   position: relative;
   width: min(92vw, 640px);
-  aspect-ratio: 1 / 1;                 /* 화면에선 반응형 정사각 */
-  background:
-    linear-gradient(#fafafa, #f2f2f2);
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(#fafafa, #f2f2f2);
   border: 2px solid #111;
   overflow: hidden;
 `;
@@ -58,16 +58,17 @@ export const Strip = styled.div`
   border: 2px solid #111;
   box-shadow: 4px 4px 0 #111;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 32px;
   line-height: 1.15;
-  transform: ${({ $rotate = 0 }) => `rotate(${$rotate}deg)`};
   left: ${({ $x = 0 }) => `${$x}%`};
   top: ${({ $y = 0 }) => `${$y}%`};
-  translate: -50% -50%;
+  /* html-to-image가 translate 단독 속성을 무시하므로 transform에 합쳐서 사용 */
+  transform: ${({ $rotate = 0 }) =>
+    `translate(-50%, -50%) rotate(${$rotate}deg)`};
+  will-change: transform;
   text-align: center;
 `;
 
-/* 각종 라벨/스탬프 */
 export const Stamp = styled.div`
   position: absolute;
   right: 10px;
@@ -80,7 +81,6 @@ export const Stamp = styled.div`
   background: #fff;
 `;
 
-/* 액션 영역 */
 export const Actions = styled.div`
   padding: 12px 14px 16px;
   display: flex;
@@ -88,7 +88,6 @@ export const Actions = styled.div`
   flex-wrap: wrap;
 `;
 
-/* 로딩 */
 export const Loading = styled.div`
   padding: 48px 0;
   text-align: center;

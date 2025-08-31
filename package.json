@@ -2,6 +2,7 @@
   "name": "whoiam",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://leeunji93.github.io/whoiam/",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
@@ -9,6 +10,7 @@
     "@testing-library/jest-dom": "^6.8.0",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "html-to-image": "^1.11.11",
     "jotai": "^2.13.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
